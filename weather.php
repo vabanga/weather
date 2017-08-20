@@ -5,25 +5,20 @@ $string = file_get_contents($pogoda);
 
 $results = json_decode($string, $assoc = true, $depth = 10000);
 
-unset($results["weather"][0]["id"]);
-unset($results["weather"][0]["description"]);
-unset($results["weather"][0]["icon"]);
-
 foreach($results["weather"][0] as $k=>$v)
 {
-    echo "weather = $v <br>";
+    if($v == "Drizzle"){
+        echo "weather = $v <br>";
+    }
 }
 
 echo "<br>";
 
-unset($results["main"]["pressure"]);
-unset($results["main"]["humidity"]);
-unset($results["main"]["temp_min"]);
-unset($results["main"]["temp_max"]);
-
 foreach($results["main"] as $k=>$v)
 {
-    echo "temp = $v(K) <br>";
+    if($v == 280.32){
+        echo "temp = $v(K) <br>";
+    }
 }
 
 
