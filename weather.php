@@ -7,8 +7,8 @@ $results = json_decode($string, $assoc = true, $depth = 10000);
 
 foreach($results["weather"][0] as $k=>$v)
 {
-    if($v == "Drizzle"){
-        echo "weather = $v <br>";
+    if($k == "main"){
+        echo 'weather = '.$v.'<br>';
     }
 }
 
@@ -16,12 +16,10 @@ echo "<br>";
 
 foreach($results["main"] as $k=>$v)
 {
-    if($v == 280.32){
-        echo "temp = $v(K) <br>";
+    if($k == "temp"){
+        echo 'temp = '.$v.'(K)'.'<br>';
     }
 }
-
-
 
 ?>
 
